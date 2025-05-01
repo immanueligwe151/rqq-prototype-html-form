@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quote Request Form</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+   <!-- Firebase configuration and initialization -->
+   <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUiL8du5Kcr2qFvGMClaVvi_uKM8xGInA",
+            authDomain: "rqq-management-project.firebaseapp.com",
+            databaseURL: "https://rqq-management-project-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "rqq-management-project",
+            storageBucket: "rqq-management-project.firebasestorage.app",
+            messagingSenderId: "397221027690",
+            appId: "1:397221027690:web:da301b7a56a528855e0f13",
+            measurementId: "G-6GJYE58N16"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Submit Quote Request</h2>
+    <form id="quoteForm" enctype="multipart/form-data">
+      <label for="part_number">Part Number</label>
+      <input type="text" id="part_number" name="part_number" required>
+
+      <label for="manufacturer">Manufacturer</label>
+      <input type="text" id="manufacturer" name="manufacturer" required>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" min="1" required>
+
+      <label for="required_when">How soon do you require this?</label>
+      <select id="required_when" name="required_when" required>
+        <option value="" selected disabled>-- Select --</option>
+        <option value="ASAP">ASAP</option>
+        <option value="1-2 weeks">1–2 weeks</option>
+        <option value="2-3 weeks">2–3 weeks</option>
+        <option value="3+ weeks">3+ weeks</option>
+      </select>
+
+      <label>Preferred Condition</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="condition" value="New"> New</label>
+        <label><input type="checkbox" name="condition" value="Repair"> Repair</label>
+        <label><input type="checkbox" name="condition" value="Refurbished"> Refurbished</label>
+        <label><input type="checkbox" name="condition" value="Service Exchange"> Service Exchange</label>
+      </div>
+
+      <label for="pictures">Upload Pictures (up to 3)</label>
+      <input type="file" id="pictures" name="pictures" accept="image/*" multiple>
+
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
